@@ -33,20 +33,31 @@ const Person = ({ contact }: Props) => {
         ) : (
           <p className='text-xl'>{contact.city}</p>
         )}
-        <div className='card-actions justify-end'>
-          {isEditMode ? (
-            <div>
-              <button
-                onClick={() => setIsEditMode(false)}
-                className='px-3 py-2 bg-red-500 text-white rounded-md cursor-pointer mr-2'
-              >
-                Cancel
-              </button>
 
-              <button className='px-3 py-2 bg-green-500 text-white rounded-md cursor-pointer'>
-                Save
-              </button>
-            </div>
+        <div
+          className={`card-actions flex items-center ${
+            isEditMode ? 'justify-between' : 'justify-end'
+          }`}
+        >
+          {isEditMode ? (
+            <>
+              <div>
+                <button className='px-3 py-2 bg-red-500 text-white rounded-md cursor-pointer'>
+                  Delete
+                </button>
+              </div>
+              <div>
+                <button
+                  onClick={() => setIsEditMode(false)}
+                  className='px-3 py-2 bg-gray-600 text-white rounded-md cursor-pointer mr-2'
+                >
+                  Cancel
+                </button>
+                <button className='px-3 py-2 bg-green-500 text-white rounded-md cursor-pointer'>
+                  Save
+                </button>
+              </div>
+            </>
           ) : (
             <button
               className='px-4 py-2 bg-gray-500 text-white rounded-md cursor-pointer'
