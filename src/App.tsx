@@ -25,7 +25,7 @@ function App() {
   const [contacts, setContacts] = useState<SingleContact[]>(initialContacts);
 
   return (
-    <div className='m-auto'>
+    <div className='max-w-6xl mx-auto px-4'>
       <h2 className='text-left text-3xl font-bold'>Contact Book</h2>
       <p className='text-left'>Keep track of your friends live.</p>
       <div className='mt-6 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
