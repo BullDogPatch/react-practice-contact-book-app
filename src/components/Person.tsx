@@ -4,9 +4,9 @@ interface Props {
   contact: SingleContact;
 }
 
-const Person  = ({ contact }: Props) => {
+const Person = ({ contact }: Props) => {
   return (
-    <div className='card card-dash bg-base-100 w-96'>
+    <div className='card card-dash bg-base-100'>
       <div className='card-body'>
         <p className='text-2xl'>{contact.name}</p>
         <p className='text-xl'>{contact.city}</p>

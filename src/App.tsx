@@ -26,9 +26,12 @@ function App() {
 
   return (
     <>
-      {contacts.map((contact) => (
-        <Person key={contact.id} contact={contact} />
-      ))}
+      <h2 className='text-3xl font-bold'>Contact Book</h2>
+      <div className='grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+        {contacts.map((contact) => (
+          <Person key={contact.id} contact={contact} />
+        ))}
+      </div>
     </>
   );
 }
