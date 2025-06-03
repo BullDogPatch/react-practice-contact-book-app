@@ -28,6 +28,13 @@ function App() {
     <div className='max-w-6xl mx-auto px-4'>
       <h2 className='text-left text-3xl font-bold'>Contact Book</h2>
       <p className='text-left'>Keep track of your friends live.</p>
+      <div className='flex gap-3 mt-2'>
+        <input type='text' className='input' placeholder='Name' />
+        <input type='text' className='input' placeholder='City' />
+        <button className='px-4 rounded-md cursor-pointer bg-blue-800'>
+          Add Contact
+        </button>
+      </div>
       <div className='mt-6 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
         {contacts.map((contact) => (
           <Person key={contact.id} contact={contact} />
