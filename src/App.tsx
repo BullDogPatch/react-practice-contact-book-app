@@ -23,14 +23,28 @@ const initialContacts = [
 
 function App() {
   const [contacts, setContacts] = useState<SingleContact[]>(initialContacts);
+  const [name, setName] = useState<string>('');
+  const [city, setCity] = useState<string>('');
 
   return (
     <div className='max-w-6xl mx-auto px-4'>
       <h2 className='text-left text-3xl font-bold'>Contact Book</h2>
       <p className='text-left'>Keep track of your friends live.</p>
       <div className='flex gap-3 mt-2'>
-        <input type='text' className='input' placeholder='Name' />
-        <input type='text' className='input' placeholder='City' />
+        <input
+          type='text'
+          className='input'
+          placeholder='Name'
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <input
+          type='text'
+          className='input'
+          placeholder='City'
+          value={city}
+          onChange={(e) => setCity(e.target.value)}
+        />
         <button className='px-4 rounded-md cursor-pointer bg-blue-800'>
           Add Contact
         </button>
