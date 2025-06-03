@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import './App.css';
+import Contact from './components/Contact';
 
-interface Contact {
+export interface SingleContact {
   id: number;
   name: string;
   city: string;
@@ -21,11 +22,11 @@ const initialContacts = [
 ];
 
 function App() {
-  const [contacts, setContacts] = useState<Contact[]>(initialContacts);
+  const [contacts, setContacts] = useState<SingleContact[]>(initialContacts);
   return (
     <>
       {contacts.map((contact) => (
-        <p key={contact.id}>{contact.name}</p>
+        <Contact key={contact.id} contact={contact} />
       ))}
     </>
   );
