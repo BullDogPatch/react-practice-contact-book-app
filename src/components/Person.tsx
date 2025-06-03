@@ -4,7 +4,7 @@ interface Props {
   contact: SingleContact;
 }
 
-const Contact = ({ contact }: Props) => {
+const Person  = ({ contact }: Props) => {
   return (
     <div className='card card-dash bg-base-100 w-96'>
       <div className='card-body'>
@@ -18,4 +18,4 @@ const Contact = ({ contact }: Props) => {
   );
 };
 
-export default Contact;
+export default Person;
