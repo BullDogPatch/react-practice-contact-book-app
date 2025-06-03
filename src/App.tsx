@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, type FormEvent } from 'react';
 import './App.css';
 import Person from './components/Person';
 
@@ -26,11 +26,19 @@ function App() {
   const [name, setName] = useState<string>('');
   const [city, setCity] = useState<string>('');
 
+  const handleAddContact = (e: FormEvent) => {
+    e.preventDefault();
+    const newPerson = { id: contacts.length + 1, name, city };
+    setContacts((prev) => [...prev, newPerson]);
+    setName('');
+    setCity('');
+  };
+
   return (
     <div className='max-w-6xl mx-auto px-4'>
       <h2 className='text-left text-3xl font-bold'>Contact Book</h2>
       <p className='text-left'>Keep track of your friends live.</p>
-      <div className='flex gap-3 mt-2'>
+      <form className='flex gap-3 mt-2' onSubmit={handleAddContact}>
         <input
           type='text'
           className='input'
@@ -45,10 +53,13 @@ function App() {
           value={city}
           onChange={(e) => setCity(e.target.value)}
         />
-        <button className='px-4 rounded-md cursor-pointer bg-blue-800'>
+        <button
+          type='submit'
+          className='px-4 rounded-md cursor-pointer bg-blue-800'
+        >
           Add Contact
         </button>
-      </div>
+      </form>
       <div className='mt-6 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
         {contacts.map((contact) => (
           <Person key={contact.id} contact={contact} />
