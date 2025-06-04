@@ -47,8 +47,10 @@ function App() {
 
   return (
     <div className='max-w-6xl mx-auto px-4'>
-      <h2 className='text-left text-3xl font-bold'>Contact Book</h2>
-      <p className='text-left'>Keep track of your friends live.</p>
+      <div className='my-10'>
+        <h2 className='text-left text-3xl font-bold'>Contact Book</h2>
+        <p className='text-left'>Keep track of your friends live.</p>
+      </div>
       <form className='flex gap-3 mt-2' onSubmit={handleAddContact}>
         <input
           type='text'
