@@ -53,7 +53,11 @@ const Person = ({ contact, handleDelete, handleSave }: Props) => {
               </div>
               <div>
                 <button
-                  onClick={() => setIsEditMode(false)}
+                  onClick={() => {
+                    setEditedName(contact.name);
+                    setEditedCity(contact.city);
+                    setIsEditMode(false);
+                  }}
                   className='px-3 py-2 bg-gray-600 text-white rounded-md cursor-pointer mr-2'
                 >
                   Cancel
