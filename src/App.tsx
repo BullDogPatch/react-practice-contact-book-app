@@ -28,7 +28,7 @@ function App() {
 
   const handleAddContact = (e: FormEvent) => {
     e.preventDefault();
-    if (!name.length || !city.length) return;
+    if (!name.trim() || !city.trim()) return;
     const newPerson = { id: contacts.length + 1, name, city };
     setContacts((prev) => [...prev, newPerson]);
     setName('');
