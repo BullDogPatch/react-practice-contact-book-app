@@ -39,6 +39,12 @@ function App() {
     setContacts((prev) => prev.filter((contact) => contact.id !== id));
   };
 
+  const handleSave = (updatedContact: SingleContact) => {
+    setContacts((prev) =>
+      prev.map((c) => (c.id === updatedContact.id ? updatedContact : c))
+    );
+  };
+
   return (
     <div className='max-w-6xl mx-auto px-4'>
       <h2 className='text-left text-3xl font-bold'>Contact Book</h2>
@@ -71,6 +77,7 @@ function App() {
             key={contact.id}
             contact={contact}
             handleDelete={handleDelete}
+            handleSave={handleSave}
           />
         ))}
       </div>
