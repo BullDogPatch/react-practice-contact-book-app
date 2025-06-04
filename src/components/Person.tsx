@@ -3,9 +3,10 @@ import type { SingleContact } from '../App';
 
 interface Props {
   contact: SingleContact;
+  handleDelete: (id: number) => void;
 }
 
-const Person = ({ contact }: Props) => {
+const Person = ({ contact, handleDelete }: Props) => {
   const [isEditMode, setIsEditMode] = useState(false);
   const [editedName, setEditedName] = useState(contact.name);
   const [editedCity, setEditedCity] = useState(contact.city);
@@ -42,7 +43,10 @@ const Person = ({ contact }: Props) => {
           {isEditMode ? (
             <>
               <div>
-                <button className='px-3 py-2 bg-red-500 text-white rounded-md cursor-pointer'>
+                <button
+                  className='px-3 py-2 bg-red-500 text-white rounded-md cursor-pointer'
+                  onClick={() => handleDelete(contact.id)}
+                >
                   Delete
                 </button>
               </div>

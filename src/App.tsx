@@ -35,6 +35,10 @@ function App() {
     setCity('');
   };
 
+  const handleDelete = (id: number) => {
+    setContacts((prev) => prev.filter((contact) => contact.id !== id));
+  };
+
   return (
     <div className='max-w-6xl mx-auto px-4'>
       <h2 className='text-left text-3xl font-bold'>Contact Book</h2>
@@ -63,7 +67,11 @@ function App() {
       </form>
       <div className='mt-6 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
         {contacts.map((contact) => (
-          <Person key={contact.id} contact={contact} />
+          <Person
+            key={contact.id}
+            contact={contact}
+            handleDelete={handleDelete}
+          />
         ))}
       </div>
     </div>
